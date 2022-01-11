@@ -1,7 +1,16 @@
-from flask import Flask
 
-app = Flask(__name__)
+BALANCES = {
+    "xu": 1000000
+}
 
-@app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
+def balances():
+    user = params.get('user')
+    print("{} has {}".format(
+        user, BALANCES[user]))
+    
+def transefers():
+    pass
+
+def users():
+    pass
+
