@@ -1,16 +1,12 @@
+# send post request and get request to servers
 
-BALANCES = {
-    "xu": 1000000
-}
+import requests
 
-def balances():
-    user = params.get('user')
-    print("{} has {}".format(
-        user, BALANCES[user]))
-    
-def transefers():
+def get_balances():
     pass
 
-def users():
+def create_user():
     pass
 
+def transfer_from_to():
+    pass

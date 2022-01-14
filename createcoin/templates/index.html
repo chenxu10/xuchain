@@ -1,8 +1,12 @@
-<html>
-<head>
-<title>Flask Tutorial</title>
-</head>
-<body>
-<h1>This is the Index page</h1>
-</body>
-</html> 
+{% extends "base.html" %}
+{% block title %}Login Page{% endblock %}
+
+{% block content %}
+<form action="#" method="post">
+	<p>Name:</p>
+	<p><input type="text" name="nm" /></p>
+	<p><input type="submit" value="get_balance"/></p>
+    <p><input type="submit" value="create_user"/></p>
+    <p><input type="submit" value="transfer_money"/></p>
+</form>
+{% endblock %}
