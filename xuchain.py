@@ -15,7 +15,7 @@ class xublock():
         block_info = str(self.index) + str(self.timestamp) + str(self.data) + \
         str(self.previous_hash)
         crypotsha.update(block_info.encode('utf-8'))
-        return crypotsha.hexdigest()
+        return crypotsha.hexdigest() 
 
 def create_first_block():
     return xublock(date.datetime.now(), 0, "my_first_block", "0")
