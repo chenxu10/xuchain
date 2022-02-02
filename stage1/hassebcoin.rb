@@ -7,13 +7,15 @@ BALANCES = {
 
 get "/balance" do
   username = params['user']
-  "#{username} has #{BALANCES[username]} coins"
+  puts BALANCES.to_s.yellow
+  "#{username} has #{BALANCES[username]} amount of money"
 end
 
 # @param name
 post "/users" do
-  name = params['name'].downcase
+  name = params['name']
   BALANCES[name] ||= 0
+  puts BALANCES.to_s.yellow
   "OK"
 end
 
@@ -21,13 +23,13 @@ end
 # @param to
 # @param amount
 post "/transfers" do
-  from, to = params.values_at('from', 'to').map(&:downcase)
-  amount = params['amount'].to_i
-  raise InsufficientFunds if BALANCES[from] < amount
-  BALANCES[from] -= amount
-  BALANCES[to] += amount
-  print_state
-  "OK"
+    from, to = params.values_at('from','to').map(&:downcase)
+    amount = params['amount'].to_i
+    raise unless BALANCES[from] > amount
+    BALANCES[from] -= amount
+    BALANCES[to] += amount
+    puts BALANCES.to_s.yellow
+    "OK"
 end
 
 class InsufficientFunds < StandardError; end
