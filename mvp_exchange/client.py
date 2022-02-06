@@ -14,5 +14,12 @@ def get_balance():
 def create_user(user):
     to_add_user = {'user':user}
     r = requests.post('{}:{}/user'.format(URL,PORT),json=to_add_user)
-    print(r.url)
+    return r.status_code
+
+def transfer_money(from_who, to, amount):
+    transfer_info = {
+        'from_who':from_who,
+        'to':to,
+        'amount':amount}
+    r = requests.post('{}:{}/transfer'.format(URL,PORT),json=transfer_info)
     return r.status_code
